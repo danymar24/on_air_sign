@@ -1,0 +1,12 @@
+{
+    "name": "on_air_sign",
+    "description": "Automated on air status sign with zoom",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flow.json",
+            "credentialsFile": "flow_cred.json"
+        }
+    }
+}
