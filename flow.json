@@ -7,6 +7,117 @@
         "info": "# On Air Sign\n\nAutomated on air sign with zoom status"
     },
     {
+        "id": "5d0fdfc3.3f428",
+        "type": "ui_tab",
+        "name": "Roku",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "b571a780.1b3c38",
+        "type": "ui_group",
+        "name": "Roku",
+        "tab": "5d0fdfc3.3f428",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "5ea7767d.475018",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "d5c3488e.834008",
         "type": "json",
         "z": "af49f098.a5b81",
@@ -58,7 +169,8 @@
         "y": 220,
         "wires": [
             [
-                "1cbbe286.2a031d"
+                "1cbbe286.2a031d",
+                "d2f652c5.99d6c"
             ],
             [
                 "bccc47ff.bc1f98"
@@ -67,7 +179,8 @@
                 "bccc47ff.bc1f98"
             ],
             [
-                "cc5578c3.2867a8"
+                "cc5578c3.2867a8",
+                "6c9780cf.e0d5f"
             ]
         ]
     },
@@ -78,8 +191,8 @@
         "name": "Status response",
         "statusCode": "200",
         "headers": {},
-        "x": 460,
-        "y": 280,
+        "x": 480,
+        "y": 300,
         "wires": []
     },
     {
@@ -91,7 +204,7 @@
         "fieldType": "msg",
         "format": "json",
         "syntax": "mustache",
-        "template": "{\n    \"on\": true,\n    \"seg\": {\n        \"col\": [\n            [0, 255, 0]\n        ]\n    }\n}",
+        "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [0, 255, 0]\n        ]\n    }\n}",
         "output": "str",
         "x": 820,
         "y": 160,
@@ -110,7 +223,7 @@
         "fieldType": "msg",
         "format": "json",
         "syntax": "mustache",
-        "template": "{\n    \"on\": true,\n    \"seg\": {\n        \"col\": [\n            [255, 0, 0]\n        ]\n    }\n}",
+        "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [255, 0, 0]\n        ]\n    }\n}",
         "output": "str",
         "x": 810,
         "y": 220,
@@ -147,7 +260,7 @@
         "method": "POST",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://192.168.86.71/json/state",
+        "url": "http://192.168.86.76/json/state",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -173,6 +286,123 @@
             [
                 "d5c3488e.834008",
                 "254b59bf.39db36"
+            ]
+        ]
+    },
+    {
+        "id": "ea15d421.668058",
+        "type": "http request",
+        "z": "af49f098.a5b81",
+        "name": "Turn On TV",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.86.26:8060/keypress/powerOn",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1270,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c9780cf.e0d5f",
+        "type": "http request",
+        "z": "af49f098.a5b81",
+        "name": "Turn Off TV",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.86.26:8060/keypress/powerOff",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 830,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2f652c5.99d6c",
+        "type": "http request",
+        "z": "af49f098.a5b81",
+        "name": "TV status",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.86.26:8060/query/device-info",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 820,
+        "y": 100,
+        "wires": [
+            [
+                "a4fd3498.760468"
+            ]
+        ]
+    },
+    {
+        "id": "a4fd3498.760468",
+        "type": "xml",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 970,
+        "y": 100,
+        "wires": [
+            [
+                "cc9e9431.60d978"
+            ]
+        ]
+    },
+    {
+        "id": "2a18f54f.f930ba",
+        "type": "debug",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cc9e9431.60d978",
+        "type": "switch",
+        "z": "af49f098.a5b81",
+        "name": "Off?",
+        "property": "payload.device-info.power-mode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Ready",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 100,
+        "wires": [
+            [
+                "ea15d421.668058",
+                "2a18f54f.f930ba"
             ]
         ]
     }
