@@ -302,10 +302,12 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1270,
+        "x": 1210,
         "y": 100,
         "wires": [
-            []
+            [
+                "a4014ffa.385b9"
+            ]
         ]
     },
     {
@@ -356,7 +358,7 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 970,
+        "x": 950,
         "y": 100,
         "wires": [
             [
@@ -381,11 +383,53 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1110,
+        "x": 1070,
         "y": 100,
         "wires": [
             [
                 "ea15d421.668058"
+            ]
+        ]
+    },
+    {
+        "id": "903fbfad.afa8e",
+        "type": "http request",
+        "z": "af49f098.a5b81",
+        "name": "Change to HDMI 1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.86.26:8060/keypress/InputHDMI1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1530,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4014ffa.385b9",
+        "type": "delay",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1360,
+        "y": 100,
+        "wires": [
+            [
+                "903fbfad.afa8e"
             ]
         ]
     }
