@@ -7,13 +7,6 @@
         "info": "# On Air Sign\n\nAutomated on air sign with zoom status"
     },
     {
-        "id": "a105a65d.6b64c8",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "5d0fdfc3.3f428",
         "type": "ui_tab",
         "name": "Roku",
@@ -38,7 +31,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -125,6 +119,12 @@
         }
     },
     {
+        "id": "f7e7f462.2f1898",
+        "type": "spotify-auth",
+        "name": "Spotify OAuth2",
+        "scope": "user-modify-playback-state, user-read-playback-state"
+    },
+    {
         "id": "ed04f6bd.21f818",
         "type": "switch",
         "z": "af49f098.a5b81",
@@ -198,10 +198,10 @@
         "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [0, 255, 0]\n        ]\n    }\n}",
         "output": "str",
         "x": 1300,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
-                "1cae856e.d0957b"
+                "e795ca68.5de6c8"
             ]
         ]
     },
@@ -220,7 +220,8 @@
         "y": 220,
         "wires": [
             [
-                "1cae856e.d0957b"
+                "1cae856e.d0957b",
+                "dcd12d02.2e917"
             ]
         ]
     },
@@ -236,10 +237,10 @@
         "template": "{\n    \"on\": false\n}",
         "output": "str",
         "x": 1290,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
-                "1cae856e.d0957b"
+                "cb70dbb3.fd25a8"
             ]
         ]
     },
@@ -257,7 +258,7 @@
         "proxy": "",
         "authType": "",
         "x": 1490,
-        "y": 220,
+        "y": 200,
         "wires": [
             []
         ]
@@ -294,7 +295,7 @@
         "proxy": "",
         "authType": "",
         "x": 1690,
-        "y": 104,
+        "y": 44,
         "wires": [
             [
                 "a4014ffa.385b9"
@@ -315,7 +316,7 @@
         "proxy": "",
         "authType": "",
         "x": 1730,
-        "y": 342,
+        "y": 400,
         "wires": [
             []
         ]
@@ -334,7 +335,7 @@
         "proxy": "",
         "authType": "",
         "x": 1300,
-        "y": 104,
+        "y": 44,
         "wires": [
             [
                 "a4fd3498.760468"
@@ -350,7 +351,7 @@
         "attr": "",
         "chr": "",
         "x": 1430,
-        "y": 104,
+        "y": 44,
         "wires": [
             [
                 "cc9e9431.60d978"
@@ -375,7 +376,7 @@
         "repair": false,
         "outputs": 1,
         "x": 1550,
-        "y": 104,
+        "y": 44,
         "wires": [
             [
                 "ea15d421.668058"
@@ -396,7 +397,7 @@
         "proxy": "",
         "authType": "",
         "x": 2010,
-        "y": 104,
+        "y": 44,
         "wires": [
             []
         ]
@@ -417,7 +418,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 1840,
-        "y": 104,
+        "y": 44,
         "wires": [
             [
                 "903fbfad.afa8e"
@@ -438,7 +439,7 @@
         "proxy": "",
         "authType": "",
         "x": 1310,
-        "y": 335,
+        "y": 393,
         "wires": [
             [
                 "f6595cc3.69b9"
@@ -454,7 +455,7 @@
         "attr": "",
         "chr": "",
         "x": 1450,
-        "y": 335,
+        "y": 393,
         "wires": [
             [
                 "65ac7b68.9a0d54"
@@ -482,7 +483,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1580,
-        "y": 335,
+        "y": 393,
         "wires": [
             [],
             [
@@ -503,7 +504,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1610,
-        "y": 400,
+        "y": 458,
         "wires": []
     },
     {
@@ -520,7 +521,7 @@
         "proxy": "",
         "authType": "",
         "x": 1310,
-        "y": 400,
+        "y": 458,
         "wires": [
             [
                 "2984e565.572e3a"
@@ -536,7 +537,7 @@
         "attr": "",
         "chr": "",
         "x": 1460,
-        "y": 400,
+        "y": 458,
         "wires": [
             [
                 "e105df1.197a52"
@@ -638,5 +639,84 @@
                 "64f3c590.568abc"
             ]
         ]
+    },
+    {
+        "id": "388787f5.ba64c8",
+        "type": "http in",
+        "z": "af49f098.a5b81",
+        "name": "Spotify",
+        "url": "/spotify-credentials/auth/callback",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "474468ac.1d7948"
+            ]
+        ]
+    },
+    {
+        "id": "dcd12d02.2e917",
+        "type": "spotify",
+        "z": "af49f098.a5b81",
+        "name": "Pause Spotify",
+        "auth": "f7e7f462.2f1898",
+        "api": "pause",
+        "x": 1500,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e795ca68.5de6c8",
+        "type": "http request",
+        "z": "af49f098.a5b81",
+        "name": "On Air Sign",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.86.76/json/state",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1490,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb70dbb3.fd25a8",
+        "type": "http request",
+        "z": "af49f098.a5b81",
+        "name": "On Air Sign",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.86.76/json/state",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1490,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "474468ac.1d7948",
+        "type": "http response",
+        "z": "af49f098.a5b81",
+        "name": "Status response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 460,
+        "y": 500,
+        "wires": []
     }
 ]
