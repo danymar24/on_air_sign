@@ -156,12 +156,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 1100,
+        "x": 880,
         "y": 220,
         "wires": [
             [
-                "1cbbe286.2a031d",
-                "d2f652c5.99d6c"
+                "a811734a.fbeb3"
             ],
             [
                 "bccc47ff.bc1f98"
@@ -197,8 +196,8 @@
         "syntax": "mustache",
         "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [0, 255, 0]\n        ]\n    }\n}",
         "output": "str",
-        "x": 1300,
-        "y": 100,
+        "x": 1380,
+        "y": 120,
         "wires": [
             [
                 "e795ca68.5de6c8"
@@ -216,7 +215,7 @@
         "syntax": "mustache",
         "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [255, 0, 0]\n        ]\n    }\n}",
         "output": "str",
-        "x": 1290,
+        "x": 1070,
         "y": 220,
         "wires": [
             [
@@ -236,7 +235,7 @@
         "syntax": "mustache",
         "template": "{\n    \"on\": false\n}",
         "output": "str",
-        "x": 1290,
+        "x": 1070,
         "y": 340,
         "wires": [
             [
@@ -257,7 +256,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1490,
+        "x": 1230,
         "y": 200,
         "wires": [
             []
@@ -272,7 +271,7 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 290,
+        "x": 70,
         "y": 220,
         "wires": [
             [
@@ -294,8 +293,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1690,
-        "y": 44,
+        "x": 1770,
+        "y": 80,
         "wires": [
             [
                 "a4014ffa.385b9"
@@ -315,7 +314,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1730,
+        "x": 1510,
         "y": 400,
         "wires": [
             []
@@ -334,8 +333,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1300,
-        "y": 44,
+        "x": 1380,
+        "y": 80,
         "wires": [
             [
                 "a4fd3498.760468"
@@ -350,8 +349,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 1430,
-        "y": 44,
+        "x": 1510,
+        "y": 80,
         "wires": [
             [
                 "cc9e9431.60d978"
@@ -375,8 +374,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1550,
-        "y": 44,
+        "x": 1630,
+        "y": 80,
         "wires": [
             [
                 "ea15d421.668058"
@@ -396,8 +395,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 2010,
-        "y": 44,
+        "x": 2090,
+        "y": 80,
         "wires": [
             []
         ]
@@ -417,8 +416,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1840,
-        "y": 44,
+        "x": 1920,
+        "y": 80,
         "wires": [
             [
                 "903fbfad.afa8e"
@@ -438,7 +437,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1310,
+        "x": 1090,
         "y": 393,
         "wires": [
             [
@@ -454,7 +453,7 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 1450,
+        "x": 1230,
         "y": 393,
         "wires": [
             [
@@ -482,7 +481,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1580,
+        "x": 1360,
         "y": 393,
         "wires": [
             [],
@@ -503,8 +502,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1610,
-        "y": 458,
+        "x": 1370,
+        "y": 460,
         "wires": []
     },
     {
@@ -520,8 +519,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1310,
-        "y": 458,
+        "x": 1090,
+        "y": 460,
         "wires": [
             [
                 "2984e565.572e3a"
@@ -536,8 +535,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 1460,
-        "y": 458,
+        "x": 1230,
+        "y": 460,
         "wires": [
             [
                 "e105df1.197a52"
@@ -553,7 +552,7 @@
         "host": "192.168.86.78",
         "timer": "20",
         "inputs": 1,
-        "x": 630,
+        "x": 410,
         "y": 220,
         "wires": [
             [
@@ -578,7 +577,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 940,
+        "x": 720,
         "y": 220,
         "wires": [
             [
@@ -605,7 +604,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 470,
+        "x": 250,
         "y": 220,
         "wires": [
             [
@@ -632,7 +631,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
+        "x": 560,
         "y": 220,
         "wires": [
             [
@@ -664,7 +663,7 @@
         "name": "Pause Spotify",
         "auth": "f7e7f462.2f1898",
         "api": "pause",
-        "x": 1500,
+        "x": 1240,
         "y": 240,
         "wires": [
             []
@@ -683,8 +682,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1490,
-        "y": 100,
+        "x": 1530,
+        "y": 120,
         "wires": [
             []
         ]
@@ -702,7 +701,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1490,
+        "x": 1230,
         "y": 340,
         "wires": [
             []
@@ -718,5 +717,65 @@
         "x": 460,
         "y": 500,
         "wires": []
+    },
+    {
+        "id": "a811734a.fbeb3",
+        "type": "simpletime",
+        "z": "af49f098.a5b81",
+        "name": "Time",
+        "mydate": false,
+        "myymd": false,
+        "myyear": false,
+        "mymonth": false,
+        "mymonthn": false,
+        "mydom": false,
+        "mydoy": false,
+        "myday": false,
+        "myhourpm": false,
+        "myhour": true,
+        "mytime": false,
+        "mytimes": false,
+        "myminute": false,
+        "myminutes": false,
+        "mysecond": false,
+        "mymillis": false,
+        "myepoch": false,
+        "myrawdate": false,
+        "mypm": false,
+        "x": 1070,
+        "y": 100,
+        "wires": [
+            [
+                "675c4a9d.81f624"
+            ]
+        ]
+    },
+    {
+        "id": "675c4a9d.81f624",
+        "type": "switch",
+        "z": "af49f098.a5b81",
+        "name": "Working Hours?",
+        "property": "myhour",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "8",
+                "vt": "num",
+                "v2": "22",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 100,
+        "wires": [
+            [
+                "1cbbe286.2a031d",
+                "d2f652c5.99d6c"
+            ]
+        ]
     }
 ]
