@@ -170,7 +170,7 @@
             ],
             [
                 "cc5578c3.2867a8",
-                "20124cbf.2727e4"
+                "fe395a09.0d84e8"
             ]
         ]
     },
@@ -181,7 +181,7 @@
         "name": "Status response",
         "statusCode": "200",
         "headers": {},
-        "x": 500,
+        "x": 280,
         "y": 300,
         "wires": []
     },
@@ -314,7 +314,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1510,
+        "x": 1690,
         "y": 400,
         "wires": [
             []
@@ -438,7 +438,7 @@
         "proxy": "",
         "authType": "",
         "x": 1090,
-        "y": 393,
+        "y": 460,
         "wires": [
             [
                 "f6595cc3.69b9"
@@ -454,7 +454,7 @@
         "attr": "",
         "chr": "",
         "x": 1230,
-        "y": 393,
+        "y": 460,
         "wires": [
             [
                 "65ac7b68.9a0d54"
@@ -482,29 +482,11 @@
         "repair": false,
         "outputs": 2,
         "x": 1360,
-        "y": 393,
+        "y": 460,
         "wires": [
             [],
-            [
-                "6c9780cf.e0d5f"
-            ]
+            []
         ]
-    },
-    {
-        "id": "e105df1.197a52",
-        "type": "debug",
-        "z": "af49f098.a5b81",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1370,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "fe395a09.0d84e8",
@@ -520,7 +502,7 @@
         "proxy": "",
         "authType": "",
         "x": 1090,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
                 "2984e565.572e3a"
@@ -536,10 +518,10 @@
         "attr": "",
         "chr": "",
         "x": 1230,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
-                "e105df1.197a52"
+                "b2f3d091.3f04b"
             ]
         ]
     },
@@ -548,7 +530,7 @@
         "type": "ping",
         "z": "af49f098.a5b81",
         "mode": "triggered",
-        "name": "Lap",
+        "name": "Mac",
         "host": "192.168.86.78",
         "timer": "20",
         "inputs": 1,
@@ -701,7 +683,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1230,
+        "x": 1210,
         "y": 340,
         "wires": [
             []
@@ -760,9 +742,9 @@
         "rules": [
             {
                 "t": "btwn",
-                "v": "8",
+                "v": "9",
                 "vt": "num",
-                "v2": "22",
+                "v2": "23",
                 "v2t": "num"
             }
         ],
@@ -775,6 +757,47 @@
             [
                 "1cbbe286.2a031d",
                 "d2f652c5.99d6c"
+            ]
+        ]
+    },
+    {
+        "id": "b2f3d091.3f04b",
+        "type": "function",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "func": "if(msg.payload['active-app'].app[0]._) {\n    msg.payload = msg.payload['active-app'].app[0]._ === 'Art';\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1360,
+        "y": 400,
+        "wires": [
+            [
+                "a42a5d5.960efa"
+            ]
+        ]
+    },
+    {
+        "id": "a42a5d5.960efa",
+        "type": "switch",
+        "z": "af49f098.a5b81",
+        "name": "Showing Art?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1520,
+        "y": 400,
+        "wires": [
+            [
+                "6c9780cf.e0d5f"
             ]
         ]
     }
