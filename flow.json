@@ -7,20 +7,118 @@
         "info": "# On Air Sign\n\nAutomated on air sign with zoom status"
     },
     {
+        "id": "18f491fd.cccfde",
+        "type": "subflow",
+        "name": "Set busy",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "5e65806b.f3daa",
+        "type": "subflow",
+        "name": "Set busy",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "bccc47ff.bc1f98"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "6f44aa00.39f1d8",
+        "type": "subflow",
+        "name": "Set available",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "a811734a.fbeb3"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "49349dd8.690534",
+        "type": "subflow",
+        "name": "Turn off tv",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "fe395a09.0d84e8"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "a307d03b.cb134",
+        "type": "subflow",
+        "name": "Turn off sign",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "cc5578c3.2867a8"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
         "id": "5d0fdfc3.3f428",
         "type": "ui_tab",
-        "name": "Roku",
+        "name": "Sign",
         "icon": "dashboard",
-        "order": 2
+        "order": 1,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "b571a780.1b3c38",
         "type": "ui_group",
-        "name": "Roku",
+        "name": "Sign",
         "tab": "5d0fdfc3.3f428",
         "order": 1,
         "disp": true,
-        "width": "6"
+        "width": "6",
+        "collapse": false
     },
     {
         "id": "5ea7767d.475018",
@@ -125,6 +223,42 @@
         "scope": "user-modify-playback-state, user-read-playback-state"
     },
     {
+        "id": "97c95f86.6e626",
+        "type": "ui_group",
+        "name": "Configuration",
+        "tab": "acd989da.d2fbc8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "acd989da.d2fbc8",
+        "type": "ui_tab",
+        "name": "Configuration",
+        "icon": "settings",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "61d2dced.3db8f4",
+        "type": "ui_group",
+        "name": "flowtest",
+        "tab": "3c94630c.13381c",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "3c94630c.13381c",
+        "type": "ui_tab",
+        "name": "Test",
+        "icon": "dashboard",
+        "order": 6
+    },
+    {
         "id": "ed04f6bd.21f818",
         "type": "switch",
         "z": "af49f098.a5b81",
@@ -156,21 +290,21 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 880,
+        "x": 900,
         "y": 220,
         "wires": [
             [
-                "a811734a.fbeb3"
+                "c6119c18.f977c"
             ],
             [
-                "bccc47ff.bc1f98"
+                "4a422cac.f5ecf4"
             ],
             [
-                "bccc47ff.bc1f98"
+                "4a422cac.f5ecf4"
             ],
             [
-                "cc5578c3.2867a8",
-                "fe395a09.0d84e8"
+                "bd72710a.3c3ec",
+                "46668f74.bd2b9"
             ]
         ]
     },
@@ -181,14 +315,14 @@
         "name": "Status response",
         "statusCode": "200",
         "headers": {},
-        "x": 280,
+        "x": 300,
         "y": 300,
         "wires": []
     },
     {
         "id": "1cbbe286.2a031d",
         "type": "template",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "Available",
         "field": "payload",
         "fieldType": "msg",
@@ -196,7 +330,7 @@
         "syntax": "mustache",
         "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [0, 255, 0]\n        ]\n    }\n}",
         "output": "str",
-        "x": 1380,
+        "x": 500,
         "y": 120,
         "wires": [
             [
@@ -207,7 +341,7 @@
     {
         "id": "bccc47ff.bc1f98",
         "type": "template",
-        "z": "af49f098.a5b81",
+        "z": "5e65806b.f3daa",
         "name": "Busy",
         "field": "payload",
         "fieldType": "msg",
@@ -215,8 +349,8 @@
         "syntax": "mustache",
         "template": "{\n    \"on\": true,\n    \"bri\": 127,\n    \"seg\": {\n        \"col\": [\n            [255, 0, 0]\n        ]\n    }\n}",
         "output": "str",
-        "x": 1070,
-        "y": 220,
+        "x": 190,
+        "y": 100,
         "wires": [
             [
                 "1cae856e.d0957b",
@@ -227,7 +361,7 @@
     {
         "id": "cc5578c3.2867a8",
         "type": "template",
-        "z": "af49f098.a5b81",
+        "z": "a307d03b.cb134",
         "name": "Away",
         "field": "payload",
         "fieldType": "msg",
@@ -235,8 +369,8 @@
         "syntax": "mustache",
         "template": "{\n    \"on\": false\n}",
         "output": "str",
-        "x": 1070,
-        "y": 340,
+        "x": 190,
+        "y": 80,
         "wires": [
             [
                 "cb70dbb3.fd25a8"
@@ -246,7 +380,7 @@
     {
         "id": "1cae856e.d0957b",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "5e65806b.f3daa",
         "name": "On Air Sign",
         "method": "POST",
         "ret": "obj",
@@ -256,8 +390,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1230,
-        "y": 200,
+        "x": 350,
+        "y": 80,
         "wires": [
             []
         ]
@@ -271,7 +405,7 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 70,
+        "x": 90,
         "y": 220,
         "wires": [
             [
@@ -283,7 +417,7 @@
     {
         "id": "ea15d421.668058",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "Turn On TV",
         "method": "POST",
         "ret": "txt",
@@ -293,7 +427,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1770,
+        "x": 890,
         "y": 80,
         "wires": [
             [
@@ -304,7 +438,7 @@
     {
         "id": "6c9780cf.e0d5f",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "49349dd8.690534",
         "name": "Turn Off TV",
         "method": "POST",
         "ret": "txt",
@@ -314,8 +448,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1690,
-        "y": 395,
+        "x": 790,
+        "y": 75,
         "wires": [
             []
         ]
@@ -323,7 +457,7 @@
     {
         "id": "d2f652c5.99d6c",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "TV status",
         "method": "GET",
         "ret": "txt",
@@ -333,7 +467,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1380,
+        "x": 500,
         "y": 80,
         "wires": [
             [
@@ -344,12 +478,12 @@
     {
         "id": "a4fd3498.760468",
         "type": "xml",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "",
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 1510,
+        "x": 630,
         "y": 80,
         "wires": [
             [
@@ -360,7 +494,7 @@
     {
         "id": "cc9e9431.60d978",
         "type": "switch",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "Off?",
         "property": "payload.device-info.power-mode",
         "propertyType": "msg",
@@ -374,7 +508,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1630,
+        "x": 750,
         "y": 80,
         "wires": [
             [
@@ -385,7 +519,7 @@
     {
         "id": "903fbfad.afa8e",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "Change to HDMI 1",
         "method": "POST",
         "ret": "txt",
@@ -395,7 +529,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 2090,
+        "x": 1210,
         "y": 80,
         "wires": [
             []
@@ -404,7 +538,7 @@
     {
         "id": "a4014ffa.385b9",
         "type": "delay",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "",
         "pauseType": "delay",
         "timeout": "3",
@@ -416,7 +550,7 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1920,
+        "x": 1040,
         "y": 80,
         "wires": [
             [
@@ -438,7 +572,7 @@
         "proxy": "",
         "authType": "",
         "x": 1090,
-        "y": 460,
+        "y": 800,
         "wires": [
             [
                 "f6595cc3.69b9"
@@ -454,7 +588,7 @@
         "attr": "",
         "chr": "",
         "x": 1230,
-        "y": 460,
+        "y": 800,
         "wires": [
             [
                 "65ac7b68.9a0d54"
@@ -482,7 +616,7 @@
         "repair": false,
         "outputs": 2,
         "x": 1360,
-        "y": 460,
+        "y": 800,
         "wires": [
             [],
             []
@@ -491,7 +625,7 @@
     {
         "id": "fe395a09.0d84e8",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "49349dd8.690534",
         "name": "Active App",
         "method": "GET",
         "ret": "txt",
@@ -501,8 +635,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1090,
-        "y": 395,
+        "x": 190,
+        "y": 75,
         "wires": [
             [
                 "2984e565.572e3a"
@@ -512,13 +646,13 @@
     {
         "id": "2984e565.572e3a",
         "type": "xml",
-        "z": "af49f098.a5b81",
+        "z": "49349dd8.690534",
         "name": "",
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 1230,
-        "y": 395,
+        "x": 330,
+        "y": 75,
         "wires": [
             [
                 "b2f3d091.3f04b"
@@ -534,7 +668,7 @@
         "host": "192.168.86.78",
         "timer": "20",
         "inputs": 1,
-        "x": 410,
+        "x": 430,
         "y": 220,
         "wires": [
             [
@@ -559,7 +693,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 720,
+        "x": 740,
         "y": 220,
         "wires": [
             [
@@ -586,7 +720,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 250,
+        "x": 270,
         "y": 220,
         "wires": [
             [
@@ -613,7 +747,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
+        "x": 580,
         "y": 220,
         "wires": [
             [
@@ -630,8 +764,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 270,
-        "y": 500,
+        "x": 90,
+        "y": 380,
         "wires": [
             [
                 "474468ac.1d7948"
@@ -641,12 +775,12 @@
     {
         "id": "dcd12d02.2e917",
         "type": "spotify",
-        "z": "af49f098.a5b81",
+        "z": "5e65806b.f3daa",
         "name": "Pause Spotify",
         "auth": "f7e7f462.2f1898",
         "api": "pause",
-        "x": 1240,
-        "y": 240,
+        "x": 360,
+        "y": 120,
         "wires": [
             []
         ]
@@ -654,7 +788,7 @@
     {
         "id": "e795ca68.5de6c8",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "On Air Sign",
         "method": "POST",
         "ret": "obj",
@@ -664,7 +798,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1530,
+        "x": 650,
         "y": 120,
         "wires": [
             []
@@ -673,7 +807,7 @@
     {
         "id": "cb70dbb3.fd25a8",
         "type": "http request",
-        "z": "af49f098.a5b81",
+        "z": "a307d03b.cb134",
         "name": "On Air Sign",
         "method": "POST",
         "ret": "obj",
@@ -683,8 +817,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1210,
-        "y": 340,
+        "x": 330,
+        "y": 80,
         "wires": [
             []
         ]
@@ -696,14 +830,14 @@
         "name": "Status response",
         "statusCode": "200",
         "headers": {},
-        "x": 460,
-        "y": 500,
+        "x": 280,
+        "y": 380,
         "wires": []
     },
     {
         "id": "a811734a.fbeb3",
         "type": "simpletime",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "Time",
         "mydate": false,
         "myymd": false,
@@ -724,7 +858,7 @@
         "myepoch": false,
         "myrawdate": false,
         "mypm": false,
-        "x": 1070,
+        "x": 190,
         "y": 100,
         "wires": [
             [
@@ -735,7 +869,7 @@
     {
         "id": "675c4a9d.81f624",
         "type": "switch",
-        "z": "af49f098.a5b81",
+        "z": "6f44aa00.39f1d8",
         "name": "Working Hours?",
         "property": "myhour",
         "propertyType": "msg",
@@ -751,7 +885,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1220,
+        "x": 340,
         "y": 100,
         "wires": [
             [
@@ -763,15 +897,15 @@
     {
         "id": "b2f3d091.3f04b",
         "type": "function",
-        "z": "af49f098.a5b81",
+        "z": "49349dd8.690534",
         "name": "",
         "func": "if(msg.payload['active-app'].app[0]._) {\n    msg.payload = msg.payload['active-app'].app[0]._ === 'Art';\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1360,
-        "y": 395,
+        "x": 460,
+        "y": 75,
         "wires": [
             [
                 "a42a5d5.960efa"
@@ -781,7 +915,7 @@
     {
         "id": "a42a5d5.960efa",
         "type": "switch",
-        "z": "af49f098.a5b81",
+        "z": "49349dd8.690534",
         "name": "Showing Art?",
         "property": "payload",
         "propertyType": "msg",
@@ -793,11 +927,247 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1520,
-        "y": 395,
+        "x": 620,
+        "y": 75,
         "wires": [
             [
                 "6c9780cf.e0d5f"
+            ]
+        ]
+    },
+    {
+        "id": "44874a40.993a24",
+        "type": "ui_button",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "group": "97c95f86.6e626",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Restart",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Are you sure you want to restart?",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 80,
+        "y": 720,
+        "wires": [
+            [
+                "c27276e8.c41288"
+            ]
+        ]
+    },
+    {
+        "id": "7501c855.4f7398",
+        "type": "exec",
+        "z": "af49f098.a5b81",
+        "command": "sudo reboot",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 530,
+        "y": 720,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4a422cac.f5ecf4",
+        "type": "subflow:5e65806b.f3daa",
+        "z": "af49f098.a5b81",
+        "name": "Set busy",
+        "env": [],
+        "x": 1100,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c6119c18.f977c",
+        "type": "subflow:6f44aa00.39f1d8",
+        "z": "af49f098.a5b81",
+        "name": "Set available",
+        "env": [],
+        "x": 1110,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bd72710a.3c3ec",
+        "type": "subflow:49349dd8.690534",
+        "z": "af49f098.a5b81",
+        "x": 1100,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "46668f74.bd2b9",
+        "type": "subflow:a307d03b.cb134",
+        "z": "af49f098.a5b81",
+        "x": 1110,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ed1729f9.3856e8",
+        "type": "ui_button",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "group": "b571a780.1b3c38",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Set available",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 480,
+        "wires": [
+            [
+                "cfbacd8b.aac19"
+            ]
+        ]
+    },
+    {
+        "id": "cfbacd8b.aac19",
+        "type": "subflow:6f44aa00.39f1d8",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "x": 250,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c2118451.10e8e8",
+        "type": "subflow:5e65806b.f3daa",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "x": 240,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "35091817.82daf8",
+        "type": "ui_button",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "group": "b571a780.1b3c38",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Set busy",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 80,
+        "y": 540,
+        "wires": [
+            [
+                "c2118451.10e8e8"
+            ]
+        ]
+    },
+    {
+        "id": "3a0bcfff.4b488",
+        "type": "ui_button",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "group": "b571a780.1b3c38",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Set away",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 80,
+        "y": 600,
+        "wires": [
+            [
+                "7a100c8f.c47b54",
+                "e1643ebe.8b343"
+            ]
+        ]
+    },
+    {
+        "id": "7a100c8f.c47b54",
+        "type": "subflow:a307d03b.cb134",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "x": 250,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e1643ebe.8b343",
+        "type": "subflow:49349dd8.690534",
+        "z": "af49f098.a5b81",
+        "name": "",
+        "x": 240,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3d46ce59.5c8e42",
+        "type": "function",
+        "z": "af49f098.a5b81",
+        "name": "Confirm",
+        "func": "//only accept OK msg's\nif (msg.payload == 'OK') {\n    msg.payload = \"Stop\";\n    node.send(msg);\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 720,
+        "wires": [
+            [
+                "7501c855.4f7398"
+            ]
+        ]
+    },
+    {
+        "id": "c27276e8.c41288",
+        "type": "ui_toast",
+        "z": "af49f098.a5b81",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "topic": "",
+        "name": "Deploy?",
+        "x": 227,
+        "y": 720,
+        "wires": [
+            [
+                "3d46ce59.5c8e42"
             ]
         ]
     }
