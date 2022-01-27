@@ -520,11 +520,11 @@
         "id": "903fbfad.afa8e",
         "type": "http request",
         "z": "6f44aa00.39f1d8",
-        "name": "Change to HDMI 1",
+        "name": "Change to HDMI 2",
         "method": "POST",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://192.168.86.26:8060/keypress/InputHDMI1",
+        "url": "http://192.168.86.26:8060/keypress/InputHDMI3",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -712,6 +712,13 @@
                 "p": "zoomStatus",
                 "pt": "flow",
                 "to": "payload.payload.object.presence_status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "zoomStatus",
+                "pt": "flow",
+                "to": "payload.status",
                 "tot": "msg"
             }
         ],
@@ -1005,6 +1012,8 @@
         "id": "bd72710a.3c3ec",
         "type": "subflow:49349dd8.690534",
         "z": "af49f098.a5b81",
+        "name": "",
+        "env": [],
         "x": 1100,
         "y": 320,
         "wires": []
